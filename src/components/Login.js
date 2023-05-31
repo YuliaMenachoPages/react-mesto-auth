@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import * as auth from '../utils/auth';
-import PopupWithLogin from "./PopupWithLogin";
+import AuthPage from "./AuthPage";
 
 
 const Login = (props) => {
@@ -35,7 +35,7 @@ const Login = (props) => {
             .catch(err => console.log(err));
     }
     return (
-        <PopupWithLogin
+        <AuthPage
             headerText='Вход'
             buttonText='Войти'
             handleSubmit={handleSubmit}

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react"
-import {Route, Routes, useNavigate} from 'react-router-dom';
+import {Navigate, Route, Routes, useNavigate} from 'react-router-dom';
 import Login from "./Login";
 import Register from "./Register";
 import InfoTooltip from "./InfoToolTip";
@@ -66,7 +66,7 @@ function App() {
             })
             .catch((err) => console.log(err));
 
-    }, []);
+    }, [loggedIn]);
 
     function handleCardLike(card) {
         const isLiked = card.likes.some(i => i._id === currentUser._id);
@@ -108,7 +108,7 @@ function App() {
 
     useEffect(() => {
         handleTokenCheck();
-    }, git[])
+    }, [])
     const handleTokenCheck = () => {
         if (localStorage.getItem('token')) {
             const token = localStorage.getItem('token');
@@ -156,6 +156,7 @@ function App() {
                     path="/signup" element={<Register
                     setIsInfoToolTipOpen={setIsInfoToolTipOpen}
                     setInfoToolTipStatus={setInfoToolTipStatus}/>}/>
+                <Route path='*' element={loggedIn ? <Navigate to='/'/> : <Navigate to='/signin'/>}/>
             </Routes>
             <EditAvatarPopup
                 isOpen={isEditAvatarPopupOpen}

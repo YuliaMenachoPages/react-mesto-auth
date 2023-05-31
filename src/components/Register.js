@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import * as auth from '../utils/auth';
-import PopupWithLogin from "./PopupWithLogin";
+import AuthPage from "./AuthPage";
 
 const Register = (props) => {
     const [formValue, setFormValue] = useState({
@@ -31,7 +31,7 @@ const Register = (props) => {
     }
 
     return (
-        <PopupWithLogin
+        <AuthPage
             headerText='Регистрация'
             buttonText='Зарегистрироваться'
             handleSubmit={handleSubmit}

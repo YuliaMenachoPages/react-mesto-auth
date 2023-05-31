@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-function PopupWithLogin(props) {
+function AuthPage(props) {
     return (
         <div className="login">
             <h2 className="login__header">
@@ -38,4 +38,4 @@ function PopupWithLogin(props) {
     )
 }
 
-export default PopupWithLogin
+export default AuthPage
