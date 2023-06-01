@@ -54,6 +54,7 @@ function App() {
     }
 
     useEffect(() => {
+        if (loggedIn === true) {
         Promise.all([
                 api.getUserData(),
                 api.getInitialCards()
@@ -66,7 +67,7 @@ function App() {
             })
             .catch((err) => console.log(err));
 
-    }, [loggedIn]);
+    } });
 
     function handleCardLike(card) {
         const isLiked = card.likes.some(i => i._id === currentUser._id);
@@ -118,7 +119,8 @@ function App() {
                     setEmail(res.data.email)
                     navigate("/", {replace: true})
                 }
-            });
+            })
+                .catch((err) => console.log(err))
         }
     }
     const handleLogin = () => {
